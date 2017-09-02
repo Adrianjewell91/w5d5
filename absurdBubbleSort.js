@@ -32,11 +32,11 @@ const innerBubbleSortLoop = function innerBubbleSortLoop(arr, i,
         [arr[i],arr[i+1]] = [arr[i+1],arr[i]];
         return innerBubbleSortLoop(arr, i + 1, true, outBubbleSortLoop);
       } else {
-        return innerBubbleSortLoop(arr, i + 1, false, outBubbleSortLoop);
+        return innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outBubbleSortLoop);
       }
     });
   } else {
-    return outBubbleSortLoop();
+    return outBubbleSortLoop(madeAnySwaps);
   }
 };
 
@@ -59,7 +59,8 @@ const absurdBubbleSort = function absurdBubbleSort(arr,
 };
 
 absurdBubbleSort([3,2,1], (arr) => {
-  console.log(arr);
+  // console.log(arr);
+  console.log("Sorted array: " + JSON.stringify(arr));
   reader.close();
   return;
 });
